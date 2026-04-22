@@ -1,0 +1,74 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Tebak Angka</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      margin-top: 100px;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    input {
+      padding: 10px;
+      width: 80%;
+      margin-top: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 20px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 10px;
+      background: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    #result {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🎮 Game Tebak Angka</h2>
+    <p>Tebak angka dari 1 - 100</p>
+    <input type="number" id="guess" placeholder="Masukkan angka">
+    <br>
+    <button onclick="checkGuess()">Tebak!</button>
+    <p id="result"></p>
+  </div>  <script>
+    let randomNumber = Math.floor(Math.random() * 100) + 1;
+
+    function checkGuess() {
+      const guess = document.getElementById('guess').value;
+      const result = document.getElementById('result');
+
+      if (guess == randomNumber) {
+        result.textContent = "🎉 Benar! Kamu menang!";
+      } else if (guess < randomNumber) {
+        result.textContent = "⬆️ Terlalu kecil!";
+      } else {
+        result.textContent = "⬇️ Terlalu besar!";
+      }
+    }
+  </script></body>
+</html>
